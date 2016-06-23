@@ -47,11 +47,11 @@ public class WikiFetcher {
 	 */
 	public Elements readWikipedia(String url) throws IOException {
 		URL realURL = new URL(url);
-
+		//System.out.println(realURL.getFile());
 		// assemble the file name
 		String slash = File.separator;
-		String filename = "resources" + slash + realURL.getHost() + realURL.getPath();
-
+		String filename = "resources/" + "en.wikipedia.org" + realURL.getPath();
+		System.out.println(filename);
 		// read the file
 		InputStream stream = WikiFetcher.class.getClassLoader().getResourceAsStream(filename);
 		Document doc = Jsoup.parse(stream, "UTF-8", filename);
